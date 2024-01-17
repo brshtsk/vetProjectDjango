@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    {% load static %}
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .page {
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            min-height: 150vh;
+            align-items: center;
+            background-color: #e7e6e6;
+        }
+
+        .header {
+            height: 70px;
+            display: flex;
+            justify-content: space-between;
+            padding: 10px;
+            background-color: #fdfdfd;
+            color: red;
+            width: 100%;
+            position: fixed;
+        }
+
+        a {
+            color: red;
+            text-decoration: none;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .header_section {
+            display: flex;
+            align-items: center;
+        }
+
+        .header_item {
+            padding: 10px 15px;
+            font-size: 20px;
+            margin-right: 5px;
+        }
+
+        .button {
+            color: red;
+            border: 2px solid red;
+            border-radius: 25px;
+            background-color: #fdfdfd;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 18px;
+            transition: background-color 0.5s;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .button:hover {
+            color: white;
+            background-color: red;
+            cursor: pointer;
+        }
+
+        .mainphoto {
+            display: flex;
+            width: 60%;
+            height: 54vh;
+            background: url('{% static 'images/1636398144_1-sobakovod-club-p-sobaki-sobaka-na-temnom-fone-1.jpg' %}');
+            margin-top: 140px;
+            justify-content: center;
+            align-items: flex-end;
+        }
+
+        .information {
+            color: white;
+            text-align: center;
+            line-height: 36px;
+            font-size: 24px;
+            padding: 50px;
+            font-family: 'Roboto', sans-serif;
+            text-decoration: underline;
+            text-underline-offset: 5px;
+        }
+
+        .main {
+            display: flex;
+            width: 60%;
+            height: 80vh;
+            background-color: #fff;
+            flex-grow: 1;
+            margin-top: 0px;
+            margin-bottom: 20px;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .footer {
+            width: 100%;
+            height: 80px;
+            background-color: #20242f;
+            color: #fff;
+            margin-top: auto;
+            display: flex;
+            justify-content: space-between;
+            padding: 10px;
+            color: #ddd;
+            font-weight: 500;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .footer_section {
+            display: flex;
+            align-items: flex-end;
+        }
+
+        .footer_item {
+            padding: 15px 30px;
+        }
+
+        .footer_item a {
+            color: #ddd;
+            transition: color 0.5s;
+        }
+
+        .footer_item a:hover {
+            color: red;
+        }
+
+        .footer_logo {
+            margin-left: 100px;
+        }
+
+        .footer_info {
+            margin-right: 30px;
+        }
+
+        .main_footer_info {
+            margin-left: 100px;
+        }
+
+        .main {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .chat {
+            display: flex;
+            width: 800px;
+            height: 500px;
+            border: 2px solid black;
+            align-items: flex-start;
+            justify-content: flex-start;
+        }
+
+        .textinputbackground {
+            align-self: flex-end;
+            width: 800px;
+            height: 100px;
+            background: #e7e6e6;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            border-top: 2px red solid;
+        }
+
+        .textinput {
+            width: 450px;
+            height: 50px;
+            background: #fff;
+            border-radius: 10px;
+            border: 2px red solid;
+            padding-left: 10px;
+            font-family: 'Roboto', sans-serif;
+            outline: none;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        #photo{
+            height:30px;
+            width:30px;
+        }
+        .custom-text-input-class {
+            width: 450px;
+            height: 50px;
+            background: #fff;
+            border-radius: 10px;
+            border: 2px red solid;
+            padding-left: 10px;
+            font-family: 'Roboto', sans-serif;
+            outline: none;
+        }
+
+        #buttoninput {
+            border: none;
+            position: relative;
+            bottom: -20px;
+            height: 50px;
+        }
+
+        #buttoninput:hover {
+            cursor: pointer;
+        }
+
+        #displayed_message {
+            display: inline;
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+        <div class="header">
+            <div class="header_section">
+                <div class="header_item headerlogo">
+                    <img src="{% static 'images/Anhealth (3).png' %}">
+                </div>
+            </div>
+            <div class="header_section">
+                <div class="header_item header_button">
+                    <form action="#" target="_blank">
+                        <button class="button">Войти</button>
+                    </form>
+            </div>
+                <div class="header_item header_button">
+                    <form action="#" target="_blank">
+                        <button class="button">Регистрация</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="mainphoto">
+            <div class="information">
+                Anhealth — Нейросеть, помогающая поддерживать нормальное давление у домашних животных
+            </div>
+        </div>
+        <div class="main">
+            <div class="chat" id="message">
+                <div id="displayed_message">
+                    <p>{{ entered_text }}</p>
+                </div>
+                <div class="textinputbackground">
+                    <form method="post" action="">
+                        {% csrf_token %}
+                        {{ form.as_p }}
+                        <button type="submit">
+                            <img id="photo"  src="{% static 'images/pngwing.com (1).png' %}">
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <div class="footer_section">
+                <div class="footer_item footer_logo">
+                    <a href="https://t.me/Randomtext_56473738382838_2bot" target="_blank">
+                        <img src="{% static 'images/telegram.png' %}">
+                    </a>
+                </div>
+            </div>
+            <div class="footer_section ">
+                <div class="footer_item footer_info">
+                    <p class="main_footer_info">© Anhealth - All Rights Reserved</p>
+                </div>
+            </div>
+            <div class="footer_section">
+                <div class="footer_item footer_info">
+                    <a href="#" target="_blank">О нас</a>
+                </div>
+                  <div class="footer_item footer_info">
+                       <a href="#" target="_blank">Обратная связь</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
