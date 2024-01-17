@@ -16,4 +16,4 @@ async def text_input_view(request):
     else:
         form = TextInputForm()
 
-    return render(request, 'myapp/preparedWeb/styledMenu.html', {'form': form})
+    return render(request, 'myapp/preparedWeb/styledMenu.html', {'entered_text': 'Привет! Я нейросеть-ветеринар. Пожалуйста, введите ваш запрос.', 'form': form})
